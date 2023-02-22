@@ -54,6 +54,7 @@ def mux(a, b, sel):
 
 
 if __name__ == "__main__":
+    """
     a = [0, 0, 0, 0, 1, 1, 1, 1]
     b = [0, 0, 1, 1, 0, 0, 1, 1]
     c = [0, 1, 0, 1, 0, 1, 0, 1]
@@ -65,3 +66,15 @@ if __name__ == "__main__":
     print("Simplified using NAND, NOR, XOR, NOT, AND et OR :")
     for A, B, C in zip(a, b, c):
         print(f"AND(NOT({C}),OR(NAND({A},{B}),AND({A},{C}))) = {AND(NOT(C),OR(NAND(A,B),AND(A,C)))}")
+    """
+    a = [0, 0, 1, 1]
+    b = [0, 1, 0, 1]
+
+    print("With XOR:")
+    for A, B in zip(a, b):
+        print(f"mux({A},{B},1) = {mux(A,B,1)}")
+        print(f"mux({A},{B},0) = {mux(A,B,0)}")
+
+    print("With NOT and NAND:")
+    for A, B in zip(a, b):
+        print(f"NOT(NAND({A}, {B})) = {OR(AND(NOT(A), B), AND(NOT(B), A))}")
