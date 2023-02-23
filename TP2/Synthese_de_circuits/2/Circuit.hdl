@@ -1,0 +1,31 @@
+CHIP Circuit {
+    IN a, b, c;
+    OUT out1, out2;
+
+    PARTS:
+    // OUT 1
+    Not(in=a, out=notA);
+    Not(in=b, out=notB);
+    Not(in=c, out=notC);
+
+    And(a=notB, b=notC, out=andnotBC);
+    And(a=notB, b=c, out=andnotBc);
+    And(a=b, b=notC, out=andnotbC);
+
+    And(a=notA, b=andnotBC, out=andFirst);
+    And(a=notA, b=andnotBc, out=andSecond);
+
+    Or(a=andFirst, b=andSecond, out=orRes);
+    Not(in=orRes, out=out1);
+
+    // OUT 2
+    And(a=a, b=andnotBC, out=andTop1);
+    And(a=notA, b=andnotbC, out=andBottom1);
+    Or(a=andTop1, b=andBottom1, out=orRes1);
+
+    And(a=notA, b=andnotBC, out=andTop2);
+    And(a=a, b=andnotbC, out=andBottom2);
+    Or(a=andTop2, b=andBottom2, out=orRes2);
+
+    Or(a=orRes1, b=orRes2, out=out2);
+}
