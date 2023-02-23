@@ -1,0 +1,37 @@
+/*
+|   a   |   b   |   c   |  out  |
+|   0   |   0   |   0   |   0   |
+|   0   |   0   |   1   |   0   |
+|   0   |   1   |   0   |   1   | !AB!C
+|   0   |   1   |   1   |   1   | !ABC
+|   1   |   0   |   0   |   1   | A!B!C
+|   1   |   0   |   1   |   1   | A!BC
+|   1   |   1   |   0   |   1   | AB!C
+|   1   |   1   |   1   |   1   | ABC
+
+FN = !AB!C + !ABC + A!B!C + A!BC + AB!C + ABC
+FN = !A!B!C + AB + AC + A!C
+*/
+CHIP Circuit {
+    IN a, b, c;
+    OUT out;
+
+    PARTS:
+    // Put your code here:
+    // Not for each input
+    Not(a=a, out=notA);
+    Not(a=b, out=notB);
+    Not(a=c, out=notC);
+
+    And(a=notA, b=notB, out=notAB);
+    And(a=notA, b=c, out=notAC);
+    And(a=a, b=notB, out=notBC);
+
+    Or(a=notAB, b=notAC, out=or1);
+    Or(a=notBC, b=c, out=or2);
+
+    Or(a=or1, b=or2, out=out);
+
+}
+
+

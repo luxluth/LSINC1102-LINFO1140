@@ -6,6 +6,7 @@ A collection of logic gates and combinational circuits.
 
 
 from typing import Literal, Tuple
+from colors import Colors as C
 
 ZeroOne = Literal[0, 1]
 ZeroOneTuple = Tuple[ZeroOne, ZeroOne]
@@ -149,6 +150,47 @@ def DMUX(a: ZeroOne, sel: ZeroOne):
     (0, 1)
     """
     return AND(a, NOT(sel)), AND(a, sel)
+
+class Test:
+    def __init__(self, func, expected: list[ZeroOne], number_of_inputs: int=2):
+        self.func = func
+        self.expected = expected
+        self.number_of_inputs = number_of_inputs
+        self.inputs = None
+        self.genarate_inputs()
+
+    def genarate_inputs(self):
+        self.inputs = []
+        for i in range(2**self.number_of_inputs):
+            self.inputs.append([int(j) for j in bin(i)[2:].zfill(self.number_of_inputs)])
+
+    def test(self):
+        failed = 0
+        print("┌"+"─"*38+"┐")
+        print(f"│ Testing {C.BOLD}{self.func.__name__:<29}{C.END}│")
+        print("├"+"─"*38+"┤")
+        for i, inp in enumerate(self.inputs):
+            if self.func(*inp) != self.expected[i]:
+                print(f"│{C.RED}{C.BOLD}FAILED{C.END}  {inp} -> {self.func(*inp)} != {self.expected[i]:<12}│")
+                failed += 1
+            else:
+                print(f"│{C.GREEN}{C.BOLD}PASSED{C.END}  {inp} -> {self.func(*inp):<17}│")
+        print("├"+"─"*38+"┤")
+        if failed == 0:
+            print(f"│{C.GREEN}{C.BOLD}All test cases passed{C.END:<21}│")
+            print("└" + "─"*38 + "┘")
+            return True
+        else:
+            print(f"│{C.BOLD}{C.RED}{failed} test cases failed{C.END:<23}│")
+            print("└" + "─"*38 + "┘")
+            return False
+
+    def __repr__(self):
+        return f"Test({self.func.__name__}, {self.expected}, {self.number_of_inputs})"
+
+    def __str__(self):
+        inputs = "\n".join([str(i) for i in self.inputs])
+        return f"Test({self.func.__name__}, {self.expected}, {self.number_of_inputs})\nInputs:\n{inputs}"
 
 if __name__ == "__main__":
     import sys
