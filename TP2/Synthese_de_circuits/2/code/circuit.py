@@ -27,29 +27,8 @@ FN2 = A!B!C + !AB!C + !A!B!C + AB!C
 """
 def circuit(A: ZeroOne, B: ZeroOne, C: ZeroOne):
     """"""
-    return (
-        NOT(OR(AND(NOT(A), AND(NOT(B), NOT(C))), AND(NOT(A), AND(NOT(B), C)))),
-
-        OR(
-            OR(
-                AND(A,
-                    AND(NOT(B), NOT(C))
-                    ),
-                AND(
-                    NOT(A),
-                    AND(B, NOT(C))
-                    )
-            ),
-            OR(
-                AND(NOT(A),
-                    AND(NOT(B), NOT(C))
-                    ),
-                AND(A,
-                    AND(B, NOT(C))
-                    )
-                )
-            )
-        )
+    return (NOT(OR(AND(NOT(A), AND(NOT(B), NOT(C))), AND(NOT(A), AND(NOT(B), C)))),
+        OR(OR(AND(A,AND(NOT(B), NOT(C))),AND(NOT(A),AND(B, NOT(C)))),OR(AND(NOT(A),AND(NOT(B), NOT(C))),AND(A,AND(B, NOT(C))))))
 
 
 

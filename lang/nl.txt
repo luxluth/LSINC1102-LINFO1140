@@ -1,0 +1,5 @@
+T_TITLE,Testen
+T_PASS,geslaagd
+T_FAIL,mislukt
+T_END_PASS,geslaagd
+T_END_FAIL,mislukt
