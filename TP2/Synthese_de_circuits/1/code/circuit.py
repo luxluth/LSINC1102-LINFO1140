@@ -21,21 +21,26 @@ from test import Test
 |   1   |   1   |   0   |   1   | AB!C
 |   1   |   1   |   1   |   1   | ABC
 
-FN = !AB!C + !ABC + A!B!C + A!BC + AB!C + ABC
-   = !A!B!C + AB + AC + A!C
+FN = A!B!C + !ABC
 */
 """
 def circuit(A: ZeroOne, B: ZeroOne, C: ZeroOne):
-    notA = NOT(A)
-    notB = NOT(B)
-    notC = NOT(C)
+    """"""
+    # NOT(OR(AND(NOT(A), NOT(B), NOT(C)), AND(NOT(A), NOT(B), C)))
+    # NOT(OR(AND(NOT(A), AND(NOT(B), NOT(C))), AND(NOT(A), AND(NOT(B), C))))
+    return NOT(
+        OR(
+            AND(
+                NOT(A),
+                AND(NOT(B), NOT(C))
+                ),
+            AND(
+                NOT(A),
+                AND(NOT(B), C)
+                )
+            )
+        )
 
-    argOne = AND(notA, AND(notB, notC))
-    argTwo = AND(A, B)
-    argThree = AND(A, C)
-    argFour = AND(notA, notC)
-
-    return OR(argOne, OR(argTwo, OR(argThree, argFour)))
 
 if __name__ == "__main__":
     excepted = [0, 0, 1, 1, 1, 1, 1, 1]

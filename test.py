@@ -4,6 +4,8 @@ test.py
 
 Test boolean functions.
 """
+import sys
+
 from colors import Colors as C
 from logics import ZeroOne
 from utils import print_bottom_line, print_middle_line, print_top_line, lprint
@@ -50,11 +52,12 @@ class Test:
         if failed == 0:
             lprint(f"{C.GREEN}{C.BOLD}All test cases passed{C.END}", -1)
             print_bottom_line()
-            return True
+            sys.exit(0)
         else:
-            lprint(f"{C.RED}{C.BOLD}{failed}{C.END} test cases failed", -1)
+            cases = "case" if failed == 1 else "cases"
+            lprint(f"{C.RED}{C.BOLD}{failed}{C.END} test {cases} failed", -1)
             print_bottom_line()
-            return False
+            sys.exit(1)
 
     def __repr__(self):
         return f"Test({self.func.__name__}, {self.expected}, {self.number_of_inputs})"
