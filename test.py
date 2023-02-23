@@ -6,7 +6,7 @@ Test boolean functions.
 """
 from colors import Colors as C
 from logics import ZeroOne
-from utils import get_space_to_fill_text, print_bottom_line, print_middle_line, print_top_line, lprint
+from utils import print_bottom_line, print_middle_line, print_top_line, lprint
 
 class Test:
     """

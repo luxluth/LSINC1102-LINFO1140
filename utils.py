@@ -1,13 +1,26 @@
+"""
+Utils
+=====
+Some useful functions.
+"""
 import os, re
+
+def getSize():
+    """
+    Returns the size of the terminal.
+    """
+    size = os.get_terminal_size()
+    rows, columns = size.lines, size.columns
+    return int(rows), int(columns)
 
 def get_space_to_fill():
     """Returns the number of spaces to fill the terminal."""
-    rows, columns = os.popen('stty size', 'r').read().split()
+    rows, columns = getSize()
     return int(columns) - 1
 
 def get_space_to_fill_text(text: str):
     """Returns the number of spaces to fill the terminal."""
-    rows, columns = os.popen('stty size', 'r').read().split()
+    rows, columns = getSize()
     return int(columns) - len(text) - 1
 
 def print_top_line():
