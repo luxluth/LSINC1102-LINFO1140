@@ -10,3 +10,4 @@ class Colors:
     UNDERLINE = '\033[4m'
     END = '\033[0m'
     WHITE = '\033[97m'
+    GRAY = '\033[0;49;90m'

@@ -4,6 +4,7 @@ Utils
 Some useful functions.
 """
 import os, re
+from colors import Colors as C
 
 def getSize():
     """
@@ -25,21 +26,21 @@ def get_space_to_fill_text(text: str):
 
 def print_top_line():
     """prints the top line of the terminal."""
-    print("┌"+"─"*get_space_to_fill_text("┌─")+"┐")
+    print(f"{C.GRAY}" + "┌"+"─"*get_space_to_fill_text("┌─")+"┐" + f"{C.END}")
 
 def print_bottom_line():
     """prints the bottom line of the terminal."""
-    print("└" + "─"*get_space_to_fill_text("└─") + "┘")
+    print(f"{C.GRAY}" + "└" + "─"*get_space_to_fill_text("└─") + "┘" + f"{C.END}")
 
 def print_middle_line():
     """prints the middle line of the terminal."""
-    print("├"+"─"*get_space_to_fill_text("├─")+"┤")
+    print(f"{C.GRAY}" + "├"+"─"*get_space_to_fill_text("├─")+"┤" + f"{C.END}")
 
 def lprint(text: str, more_space: int=0):
     """Prints a line with the given text and fills the rest of the terminal with spaces."""
     # Remove ANSI escape sequences
     raw_text = re.sub(r"\x1b\[[0-9;]*m", "", text)
-    print(f"│ {text}" + " "*(get_space_to_fill_text(f"│ {raw_text}")+more_space)+"│")
+    print(f"{C.GRAY}│{C.END} {text}" + " "*(get_space_to_fill_text(f"│ {raw_text}")+more_space)+f"{C.GRAY}│{C.END}")
 
 
 if __name__ == "__main__":
