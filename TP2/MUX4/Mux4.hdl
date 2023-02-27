@@ -1,0 +1,23 @@
+CHIP Mux4 {
+    IN a[4], b[4], sel;
+    OUT out[4];
+
+    PARTS:
+    Not(in=sel, out=notSel);
+
+    And(a=a[0], b=notSel, out=andL0);
+    And(a=a[1], b=notSel, out=andL1);
+    And(a=a[2], b=notSel, out=andL2);
+    And(a=a[3], b=notSel, out=andL3);
+
+    And(a=b[0], b=sel, out=andR0);
+    And(a=b[1], b=sel, out=andR1);
+    And(a=b[2], b=sel, out=andR2);
+    And(a=b[3], b=sel, out=andR3);
+
+    Or(a=andL0, b=andR0, out=out[0]);
+    Or(a=andL1, b=andR1, out=out[1]);
+    Or(a=andL2, b=andR2, out=out[2]);
+    Or(a=andL3, b=andR3, out=out[3]);
+
+}
