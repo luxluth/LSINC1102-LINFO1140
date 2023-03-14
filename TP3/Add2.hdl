@@ -1,0 +1,8 @@
+CHIP Add2 {
+    IN a[2], b[2];
+    OUT out[2];
+
+    PARTS:
+    FullAdder(a=a[0], b=b[0], c=false, sum=out[0], carry=carry1);
+    FullAdder(a=a[1], b=b[1], c=carry1, sum=out[1], carry=carry2);
+}

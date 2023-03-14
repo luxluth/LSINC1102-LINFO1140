@@ -1,0 +1,8 @@
+CHIP Inc2 {
+    IN in[2];
+    OUT out[2];
+
+    PARTS:
+    Add2(a=in, b[0]=true, out=temp); // incrémenter de 1 en ajoutant 1 à la première entrée de 2 bits
+    Add2(a=temp, b[1]=false, out=out); // Ajouter 0 au bit de poids fort pour compléter l'opération
+}
