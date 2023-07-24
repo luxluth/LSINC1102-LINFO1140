@@ -1,19 +1,7 @@
 CHIP Circuit {
-    IN a, b, c;
-    OUT out;
-
-    PARTS:
-    Not(in=a, out=notA);
-    Not(in=b, out=notB);
-    Not(in=c, out=notC);
-
-    And(a=notB, b=notC, out=andnotBC);
-    And(a=notB, b=c, out=andnotBc);
-
-    And(a=notA, b=andnotBC, out=andFirst);
-    And(a=notA, b=andnotBc, out=andSecond);
-
-    Or(a=andFirst, b=andSecond, out=orRes);
-    Not(in=orRes, out=out);
+IN a, b, c;
+OUT out;
+PARTS:
+Or (a=a,b=b, out=out) ;
 
 }
