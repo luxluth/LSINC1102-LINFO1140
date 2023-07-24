@@ -1,3 +1,4 @@
+// sur inginious il faut mettre Circuit2 à la place de Circuit 
 CHIP Circuit {
     IN a, b, c;
     OUT out1, out2;
