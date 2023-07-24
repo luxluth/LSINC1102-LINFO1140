@@ -1,44 +1,12 @@
+// sur inginious il faut mettre Circuit3 à la place de Circuit 
 CHIP Circuit {
     IN a, b, c;
     OUT out1, out2, out3;
-
     PARTS:
-    // OUT 1
-    Not(in=a, out=notA);
-    Not(in=b, out=notB);
-    Not(in=c, out=notC);
-
-    And(a=notB, b=notC, out=andnotBC);
-    And(a=notB, b=c, out=andnotBc);
-    And(a=b, b=notC, out=andnotbC);
-
-    And(a=notA, b=andnotBC, out=andFirst);
-    And(a=notA, b=andnotBc, out=andSecond);
-
-    Or(a=andFirst, b=andSecond, out=orRes);
-    Not(in=orRes, out=preOut1);
-
-    // OUT 2
-    And(a=a, b=andnotBC, out=andTop1);
-    And(a=notA, b=andnotbC, out=andBottom1);
-    Or(a=andTop1, b=andBottom1, out=orRes1);
-
-    And(a=notA, b=andnotBC, out=andTop2);
-    And(a=a, b=andnotbC, out=andBottom2);
-    Or(a=andTop2, b=andBottom2, out=orRes2);
-
-    Or(a=orRes1, b=orRes2, out=preOut2);
-
-    // OUT 3
-    Xor(a=preOut1, b=preOut2, out=preOut3);
-
-    // OUT 1
-    Or(a=preOut1, b=false, out=out1);
-
-    // OUT 2
-    Or(a=preOut2, b=false, out=out2);
-
-    // OUT 3
-    Or(a=preOut3, b=false, out=out3);
-
+    // Commencez ici
+    Or (a=a,b=b,out=out1);
+    Not (in=c,out=out2);
+    Or (a=a,b=b,out=info1);
+    Not (in=c,out=info2);
+    Xor (a=info1, b=info2,out=out3) ;
 }

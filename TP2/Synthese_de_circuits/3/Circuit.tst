@@ -1,4 +1,4 @@
-// Nommer Circuit par Circuit3
+// Nommer Circuit par Circuit
 load Circuit.hdl,
 output-file Circuit.out,
 compare-to Circuit.cmp,//pas besoin sur inginious
