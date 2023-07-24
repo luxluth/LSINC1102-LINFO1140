@@ -1,6 +1,12 @@
 # QCM Compléments d'arithmétique
 
-Les opérations de base sur les nombres sont l'addition et la soustraction. Nous allons nous entrainer sur les opérations de multiplication et de division
+*Les opérations de base sur les nombres sont l'addition et la soustraction. Nous allons nous entrainer sur les opérations de multiplication et de division*
+
+- [QCM Compléments d'arithmétique](#qcm-compléments-darithmétique)
+  - [Question 1](#question-1)
+  - [Question 2](#question-2)
+  - [Question 3](#question-3)
+
 
 ## Question 1
 
