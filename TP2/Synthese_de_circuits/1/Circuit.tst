@@ -1,6 +1,7 @@
-load Circuit.hdl,
+// Nommer Circuit par Circuit1
+load Circuit.hdl, 
 output-file Circuit.out,
-compare-to Circuit.cmp,
+compare-to Circuit.cmp, //pas besoin sur inginious
 output-list a%B3.1.3 b%B3.1.3 c%B3.1.3 out%B3.1.3;
 
 set a 0,
