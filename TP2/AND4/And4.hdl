@@ -1,17 +1,10 @@
 CHIP And4 {
-    IN a[4], b[4];
-    OUT out[4];
-
-    PARTS:
-    // Negate the inputs with Not gates
-    Nand(a=a[0], b=b[0], out=out00);
-    Nand(a=a[1], b=b[1], out=out11);
-    Nand(a=a[2], b=b[2], out=out22);
-    Nand(a=a[3], b=b[3], out=out33);
-
-    Not(in=out00, out=out[0]);
-    Not(in=out11, out=out[1]);
-    Not(in=out22, out=out[2]);
-    Not(in=out33, out=out[3]);
-
+IN a[4], b[4];
+OUT out[4];
+PARTS:
+// Commencez ici
+And (a=a[0], b=b[0] ,out=out[0]);
+And (a=a[1] ,b=b[1], out=out[1]);
+And (a=a[2], b=b[2], out=out[2]);
+And(a=a[3], b=b[3], out=out[3]);
 }
