@@ -1,4 +1,4 @@
-CHIP Circuit1 {
+CHIP Circuit {
     IN a, b, c;
     OUT out;
 
