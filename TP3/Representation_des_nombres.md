@@ -1,6 +1,15 @@
 # TP3 - Représentation des nombres
 
-Dans cet exercice, nous allons apprendre à manipuler les différentes représentations des nombres.
+*Dans cet exercice, nous allons apprendre à manipuler les différentes représentations des nombres.*
+
+- [TP3 - Représentation des nombres](#tp3---représentation-des-nombres)
+  - [Question 1](#question-1)
+  - [Question 2](#question-2)
+  - [Question 3](#question-3)
+  - [Question 4](#question-4)
+  - [Question 5](#question-5)
+  - [Question 6](#question-6)
+
 
 ## Question 1
 
