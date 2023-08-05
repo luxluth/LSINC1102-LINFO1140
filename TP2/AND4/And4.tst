@@ -1,7 +1,7 @@
 // N'enlevez pas ces lignes
 load And4.hdl,
 output-file And4.out,
-compare-to And4.cmp,
+compare-to And4.cmp, // pas mettre sur inginious 
 output-list a%B1.4.1 b%B1.4.1 out%B1.4.1;
 
 // Commencez ici
