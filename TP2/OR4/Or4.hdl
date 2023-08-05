@@ -1,26 +1,11 @@
-CHIP Or4 {
+CHIP Or4 { 
     IN a[4], b[4];
     OUT out[4];
 
     PARTS:
-    // Negate the inputs with Not gates
-    Not(in=a[0], out=notA0);
-    Not(in=a[1], out=notA1);
-    Not(in=a[2], out=notA2);
-    Not(in=a[3], out=notA3);
-
-    Not(in=b[0], out=notB0);
-    Not(in=b[1], out=notB1);
-    Not(in=b[2], out=notB2);
-    Not(in=b[3], out=notB3);
-
-    And(a=notA0, b=notB0, out=and00);
-    And(a=notA1, b=notB1, out=and11);
-    And(a=notA2, b=notB2, out=and22);
-    And(a=notA3, b=notB3, out=and33);
-
-    Not(in=and00, out=out[0]);
-    Not(in=and11, out=out[1]);
-    Not(in=and22, out=out[2]);
-    Not(in=and33, out=out[3]);
+    // Commencez ici
+    Or(a=a[0],b=b[0],out=out[0]);
+    Or(a=a[1],b=b[1],out=out[1]);
+    Or(a=a[2],b=b[2] ,out=out[2]);
+    Or(a=a[3] ,b=b[3] ,out=out[3]):
 }
