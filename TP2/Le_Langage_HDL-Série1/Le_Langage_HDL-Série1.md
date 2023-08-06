@@ -2,7 +2,7 @@
 
 *HDL peut etre utilisé pour construire de nombreuses fonctions booléennes en s'appuyant sur les fonctions existantes. Le simulateur étudié dans le cadre de ce cours supporte des fonctions de base dont Nand, And, Or, Not. Nous allons nous entrainer sur des exemples de circuit en HDL.*
 
-- [Le Langage HDL - Série 1](#qcm---le-language-HDl---série-1)
+- [QCM - Le Langage HDL - Série 1](#qcm---le-langage-hdl---série-1)
   - [Question 1](#question-1)
   - [Question 2](#question-2)
   - [Question 3](#question-3)
@@ -14,151 +14,170 @@
 
 En utilisant l'inverseur, il est possible de construire un circuit qui retourne en sortie son entrée
 
-- ( ) <pre>
-      <code>
+-[ ]
+```text
 
-      CHIP Rien {
-        IN a;
-        OUT out3;
-        PARTS:
-            Not(in=a, out=out1)
-            Not(in=out1, out=out2);
-            Not(in=out2, out=out3);
-      }
+CHIP Rien {
+   IN a;
 
-    </code>
-    </pre>
+   OUT out3;
 
-- ( ) <pre>
-      <code>
+   PARTS:
+      Not(in=a, 
+      out=out1);
 
-        CHIP Rien {
-            IN a;
-            OUT out;
-            PARTS:
-        }
-    </code>
-    </pre>
+      Not(in=out1,
+      out=out2);
 
-- ( ) <pre>
-      <code>
+      Not(in=out2,
+      out=out3);
 
-        CHIP Rien {
-            IN a;
-            OUT out;
-            PARTS:
-                Not(in=a, out=nota);
+}
+```
 
-        }
-    </code>
-    </pre>
+-[ ]
+```text
 
-- (x) 
-    <pre>
-    <code>
+CHIP Rien {
+  IN a;
 
-        CHIP Rien {
-            IN a;
-            OUT out;
-            PARTS:
-                Not(in=a, out=nota);
-                Not(in=nota, out=out);
-        }
-    </code>
-    </pre>
+  OUT out;
+
+  PARTS:
+
+}
+```
+
+
+-[ ]
+```text
+
+CHIP Rien {
+    IN a;
+
+    OUT out;
+
+    PARTS:
+
+        Not(in=a, out=nota);
+
+}
+```
+
+-[x]
+```text
+
+CHIP Rien {
+    IN a;
+
+    OUT out;
+
+    PARTS:
+        Not(in=a, out=nota);
+
+        Not(in=nota, out=out);
+
+}
+```
+
 ## Question 2
 
 On veut construire un circuit qui implémente la fonction AND avec trois entrées en utilisant des fonctions AND à deux entrées
 
 
 
-- (x) /Un circuit AND à trois entrées/
-    <pre>
-        <code>
-        CHIP And3 {
-            IN a,b,c;
-            // Les trois entrées
-            OUT out;
-            // La sortie du circuit
-            PARTS:
-                And(a=a, b=b, out=and1);
-                And(a=and1, b=c, out=out);
-        
-          }
-    </code>
-    </pre>
+- [x] /Un circuit AND à trois entrées/
+```text
+CHIP And3 {
+    IN a,b,c;
+    // Les trois entrées
+    OUT out;
+    // La sortie du circuit
+    PARTS:
+        And(a=a, b=b, 
+        out=and1);
+
+        And(a=and1, b=c, 
+        out=out);
+
+}
+```
     
-- ( ) /Un circuit AND à trois entrées/
-    <pre>
-        <code>
-        CHIP And3 {
-            IN a,b,c;
-            // Les trois entrées
-            OUT out;
-            // La sortie du circuit
-            PARTS:
-                And(a=a, b=b, out=and1);
-                And(a=and1, b=a, out=out);
-        }
-        </code>
-    </pre>
+- [ ] /Un circuit AND à trois entrées/
+```text
+CHIP And3 {
+    IN a,b,c;
+    // Les trois entrées
+    OUT out;
+    // La sortie du circuit
+    PARTS:
+        And(a=a, b=b, 
+        out=and1);
 
-- ( ) /Un circuit AND à trois entrées/
-    <pre>
-        <code>
+        And(a=and1, b=a, 
+        out=out);
+}
+```
+
+- [ ] /Un circuit AND à trois entrées/
+```text
+CHIP And3 {
+    IN a,b,c;
+    // Les trois entrées
+    OUT out;
+    // La sortie du circuit
+    PARTS:
+        And(a=a, b=b, 
+        out=and1);
+
+        And(a=and1, b=b, 
+        out=out);
+}
+```
+
+```text
+- [ ] /Un circuit AND à trois entrées/
         CHIP And3 {
         IN a,b,c;
         // Les trois entrées
         OUT out;
         // La sortie du circuit
         PARTS:
-            And(a=a, b=b, out=and1);
-            And(a=and1, b=b, out=out);
+            And(a=a, b=b,
+             out=and1);
+
+            And(a=b, b=c, 
+            out=out);
         }
-        </code>
-    </pre>
-
-- ( ) /Un circuit AND à trois entrées/
-    <pre>
-        <code>
-        CHIP And3 {
-        IN a,b,c;
-        // Les trois entrées
-        OUT out;
-        // La sortie du circuit
-        PARTS:
-            And(a=a, b=b, out=and1);
-            And(a=b, b=c, out=out);
-        }
-        </code>
-    </pre>
-
-
-
-
-
+```
 
 
 ## Question 3
 
 Considérons le circuit suivant: De quelle fonction s'agit il?
 
-<pre>
-<code>
+```text
 CHIP Fonction {
     IN a,b;
     OUT out;
     PARTS:
-        Not(in=a, out=nota);
-        Not(in=b, out=notb);
-        And(a=a, b=notb, out=w1);
-        And(a=nota, b=b, out=w2);
-        Or(a=w1, b=w2, out=out);
+        Not(in=a, 
+        out=nota);
+
+        Not(in=b, 
+        out=notb);
+
+        And(a=a, b=notb, 
+        out=w1);
+
+        And(a=nota, b=b,
+         out=w2);
+
+        Or(a=w1, b=w2,
+         out=out);
 
 }
-</code>
-</pre>
-
+```
 
 - [ ] `La fonction OR`
 - [ ] `La fonction NOR`
