@@ -1,7 +1,5 @@
 # QCM - Les mémoires RAM,ROM + Flip Flop RS
 
-*Commutativité-Associativité-Lois de De Morgan*
-
 - [QCM - Les mémoires RAM,ROM + Flip Flop RS](#qcm---les-mémoires-ramrom--flip-flop-rs)
   - [Question 1](#question-1)
   - [Question 2](#question-2)
